@@ -1,60 +1,37 @@
 import React from "react";
 
-class Square extends React.component {
-    render() {
-        return(
-            <button className={"square"}>
-
-            </button>
-        )
-    }
-}
-
-class Board extends React.component {
-    renderSquare(i) {
-        return <Square/>
+class FormLogin extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            login: ""
+        }
+        this.HandleChange = this.HandleChange.bind(this)
+        this.HandleSubmit = this.HandleSubmit.bind(this)
     }
 
-    render() {
-        const status = 'Следующий игрок 0'
+    HandleChange(event) {
+        this.setState({value: event.target.value})
+    }
 
-        return(
+    HandleSubmit(event) {
+        alert("Ваш логин: " + this.state.value)
+        event.preventDefault()
+    }
+
+    render() {
+        return (
             <div>
-                <div className={"status"}>{status}</div>
-                <div className={"board5-row"}>
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </div>
-                <div className={"board5-row"}>
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className={"board5-row"}>
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </div>
+                <form onSubmit={this.HandleSubmit}>
+                    Введите логин:
+                    <label>
+                        <input className='input1' type="text" value={this.state.value} onChange={this.HandleChange}/>
+                    </label>
+                    <input type="submit" value="submit"/>
+                </form>
             </div>
-        )
+        );
     }
 }
 
-class Game extends React.component {
-    render() {
-        return(
-            <div className={"game"}>
-                <div className={"game-board"}>
-                    <Board/>
-                </div>
-                <div className={"game-info"}>
-                    <div></div>
-                    <ol></ol>
-                </div>
-            </div>
-        )
-    }
-}
-
-export default Game;
+export default FormLogin
