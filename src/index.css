@@ -18,7 +18,7 @@ div {
   width: 350px;
   display: block;
   margin: 0 auto;
-  font-size: 30px;
+  font-size: 15px;
 }
 
 input {
@@ -27,7 +27,22 @@ input {
   font-size: 20px;
 }
 
-.input1 {
+p {
+  font-size: 15px;
+  margin: 1px 0;
+}
+
+.radios {
   width: 200px;
-  height: 30px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio1 {
+  width: 20px;
+}
+
+.radios label {
+  margin-right: 70px;
 }
